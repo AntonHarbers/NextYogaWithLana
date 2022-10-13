@@ -12,14 +12,14 @@ export default function NavbarItem(props: any) {
                 (
                     <Link href={props.link}>
                         {router.pathname == props.link ? (
-                            <a className="mx-1 md:mx-5 px-4 py-2 text-md text-secondary border-secondary font-medium cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none" 
+                            <a className="mx-0 md:mx-5 px-4 py-2 text-md text-secondary border-secondary font-medium cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none" 
                             onClick={() => {
                                 props.changeActiveTab(props.name)
                                 props.changeActive("empty")}}>
                                 {props.name}
                             </a>
                         ) : (
-                            <a className="mx-1 md:mx-5 px-4 py-2 text-md font-medium text-text cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none" 
+                            <a className="mx-0 md:mx-5 px-4 py-2 text-md font-medium text-text cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none" 
                             onClick={() => {
                                 props.changeActiveTab(props.name)
                                 props.changeActive("empty")}}>
@@ -33,13 +33,13 @@ export default function NavbarItem(props: any) {
                     (
                         <a onClick={() => {
                             props.changeActive(props.name)
-                        }} className="mx-1 md:mx-5 px-4 py-2 text-md font-medium text-secondary cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none">
+                        }} className="mx-0 md:mx-5 px-4 py-2 text-md font-medium text-secondary cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none">
                             {props.name} 
                         </a>
                     ) : (
                         <a onClick={() => {
                             props.changeActive(props.name)
-                        }} className="mx-1 md:mx-5 px-4 py-2 text-md font-medium text-text cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none">
+                        }} className="mx-0 md:mx-5 px-4 py-2 text-md font-medium text-text cursor-pointer border-b-2 border-transparent hover:border-secondary transition duration-500 ease-in-out focus:outline-none">
                             {props.name} 
                         </a>
                     )
