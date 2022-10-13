@@ -6,9 +6,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^2.0.11",
+    "@sanity/image-url": "^1.0.1",
+    "@swc/helpers": "^0.4.11",
+    "flowbite": "^1.5.3",
+    "flowbite-react": "^0.1.11",
+    "framer-motion": "^7.3.5",
     "next": "latest",
+    "next-sanity": "^0.8.4",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.37.0",
+    "react-portable-text": "^0.5.1"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
@@ -16,6 +26,7 @@
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
+    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.1.2",
     "typescript": "4.7.2"
   }
