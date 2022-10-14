@@ -139,7 +139,7 @@ export default function Home({ posts, blogPosts }: Props) {
                 <img className='my-5 md:my-0 rounded-full mr-0 md:mr-20 w-[10vh] h-[10vh] shadow-xl' src={urlFor(post.headerPicture).url()!} alt="" />
               </div>
             </div>
-            <div className='mx-auto my-10 w-full border-dotted border-b-2'>
+            <div className='mx-auto my-10 w-full'>
               <PortableText
                 className=' flex flex-col text-start'
                 dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
