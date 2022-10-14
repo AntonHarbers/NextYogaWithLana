@@ -17,9 +17,10 @@ export default function Home({ posts, blogPosts }: Props) {
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1 }}
     >
-      <div id="intopart" className="flex flex-col 2xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
+      <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
 
-        <div id="leftcol" className="flex flex-col w-full xl:w-3/5 m-2 text-center 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
+        <div id="leftcol" 
+        className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
           <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius">YOGA</motion.h1>
           <h1 className=" font-Julius">·</h1>
           <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius">SPIRITUALITY</motion.h1>

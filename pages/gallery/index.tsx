@@ -47,23 +47,21 @@ export default function Gallary({ imagesPosts }: Props) {
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
-
                             <h1 className=" text-center text-4xl font-Julius my-auto"># {(post.name)}</h1>
-
                         </>)
                 ))}
             </div>
-            <div className=" flex flex-col 2xl:hidden w-4/5 h-auto mx-auto">
+            <div className="flex flex-col 2xl:hidden w-4/5 h-auto mx-auto">
                 {imagesPosts.map((post, index) => (
                     index % 2 === 0 ? (
                         <>
                             <h1 className=" text-center text-4xl my-auto font-Julius"># {(post.name)}</h1>
                             <AnimatePresence>
-                                <motion.div initial={{ x: -400, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: -400, opacity: 0 }} transition={{ delay: 0, duration: 1.5 }}>
+                                <motion.div initial={{ x: -200, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: -200, opacity: 0 }} transition={{ delay: 0, duration: 1.5 }}>
                                     <div className="flex flex-col rounded-xl w-full xl:w-5/6 mx-auto my-20 h-[40vh] bg-greensLite  " key={index}>
                                         <Carousel slideInterval={5000} >
                                             {post.gallaryImages.map((image, indexTwo) => (
-                                                <img className=" h-auto max-h-[30rem] w-auto mx-automy-[-1rem] rounded-lg " src={urlFor(image).url()!} alt={index.toString()} />
+                                                <img className="w-[80%] max-h-[80%] rounded-lg" src={urlFor(image).url()!} alt={index.toString()} />
                                             ))}
                                         </Carousel>
                                     </div>
@@ -76,11 +74,11 @@ export default function Gallary({ imagesPosts }: Props) {
                         <>
                             <h1 className=" text-center text-4xl my-auto font-Julius"># {(post.name)}</h1>
                             <AnimatePresence>
-                                <motion.div initial={{ x: 400, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: 400, opacity: 0 }} transition={{ delay: 0, duration: 1.5 }}>
+                                <motion.div initial={{ x: 200, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: 200, opacity: 0 }} transition={{ delay: 0, duration: 1.5 }}>
                                     <div className="flex flex-col rounded-xl w-full xl:w-5/6 mx-auto my-20 h-[40vh] bg-greensLite  " key={index}>
                                         <Carousel slideInterval={5000} >
                                             {post.gallaryImages.map((image, indexTwo) => (
-                                                <img className=" h-auto max-h-[30rem] w-auto mx-automy-[-1rem] rounded-lg " src={urlFor(image).url()!} alt={index.toString()} />
+                                                <img className="w-[80%] max-h-[80%] rounded-lg  " src={urlFor(image).url()!} alt={index.toString()} />
                                             ))}
                                         </Carousel>
                                     </div>

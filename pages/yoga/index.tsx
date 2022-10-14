@@ -20,96 +20,8 @@ export default function Benefits({ posts, testimonialsPosts }: Props) {
       transition={{ ease: "easeInOut", duration: 2 }}
     >
       <div>
-
-        <div id="benefitsSection">
-          <h1 className='mx-auto text-center text-6xl font-Julius mt-10 mb-28' >Poses & Benefits</h1>
-          {posts.map((post, index) => (
-            index % 2 === 0 ? (
-              <div key={post._id} className='flex flex-col'>
-                <div className='my-10 w-full xl:w-[75vw] mx-auto flex flex-col xl:flex-row justify-between items-center'>
-                  <AnimatePresence>
-                    <motion.img initial={{ x: "-20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "-20vw", opacity: 0 }} transition={{ duration: 1 }} className='rounded-lg' src={urlFor(post.benefitsImage).url()!} alt="" />
-                  </AnimatePresence>
-                  <AnimatePresence>
-                    <motion.div initial={{ x: "20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "20vw", opacity: 0 }} transition={{ duration: 1 }} className=' w-5/6 xl:w-1/2 h-auto text-center'>
-                      <PortableText
-                        className=""
-                        dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-                        projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-                        content={post.benefitsText}
-                        serializers={{
-                          h1: (props: any) => (
-                            <h1 className="text-4xl font-bold my-5" {...props} />
-                          ),
-                          normal: (props: any) => (
-                            <h1 className="font-semibold text-sm xl:text-lg my-5" {...props} />
-                          ),
-                          h2: (props: any) => (
-                            <h1 className='text-2xl font-bold my-5' {...props} />
-                          ),
-                          li: ({ children }: any) => (
-                            <li className='list-disc'>{children}</li>
-                          ),
-                          link: ({ href, children }: any) => (
-                            <a href={href} className="text-blue-500 hover:underline">
-                              {children}
-                            </a>
-                          ),
-                        }
-                        }
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                </div>
-              </div>
-            ) : (
-              <div key={post._id} className='flex flex-col'>
-                <div className='my-10 w-full xl:w-[75vw] mx-auto flex flex-col-reverse xl:flex-row justify-between items-center'>
-                  <AnimatePresence>
-                    <motion.div initial={{ x: "-20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "-20vw", opacity: 0 }} transition={{ duration: 1 }} className=' w-5/6 xl:w-1/2 h-auto text-center'>
-                      <PortableText
-                        className=""
-                        dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-                        projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-                        content={post.benefitsText}
-                        serializers={{
-                          h1: (props: any) => (
-                            <h1 className="text-4xl font-bold my-5" {...props} />
-                          ),
-                          normal: (props: any) => (
-                            <h1 className="font-semibold text-sm xl:text-lg my-5" {...props} />
-                          ),
-                          h2: (props: any) => (
-                            <h1 className='text-2xl font-bold my-5' {...props} />
-                          ),
-                          li: ({ children }: any) => (
-                            <li className='list-disc'>{children}</li>
-                          ),
-                          link: ({ href, children }: any) => (
-                            <a href={href} className="text-blue-500 hover:underline">
-                              {children}
-                            </a>
-                          ),
-                        }
-                        }
-
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                  <AnimatePresence>
-                    <motion.img initial={{ x: "20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "20vw", opacity: 0 }} transition={{ duration: 1 }} className='rounded-lg' src={urlFor(post.benefitsImage).url()!} alt="" />
-                  </AnimatePresence>
-                </div>
-              </div>
-            )
-
-          ))}
-        </div>
-
-        <h1 className='mx-auto text-center text-5xl font-Julius mt-44' >Testimonials</h1>
-        <div id='testimonialsSection' className='flex w-[90vw] md:w-[70vw] h-[70vh] min-h-[40rem] max-h-[50rem] shadow-2xl shadow-text mx-auto mt-10 mb-20 border rounded-2xl bg-secondary'>
+        <h1 className='mx-auto text-center text-5xl font-Julius my-10'>Testimonials</h1>
+        <div id='testimonialsSection' className='flex w-[90vw] md:w-[70vw] h-[60vh] min-h-[40rem] max-h-[50rem] shadow-2xl shadow-text mx-auto mt-20 mb-36 border rounded-2xl bg-secondary'>
           <Carousel slideInterval={5000}>
             {testimonialsPosts.map((post) => (
               <div key={post._id} className='flex flex-col items-center w-4/5 xl:w-1/2 bg-secondary'>
@@ -134,7 +46,7 @@ export default function Benefits({ posts, testimonialsPosts }: Props) {
                         <h1 className="text-2xl font-bold my-5" {...props} />
                       ),
                       normal: (props: any) => (
-                        <h1 className="font-semibold text-sm xl:text-lg my-5" {...props} />
+                        <h1 className="font-semibold text-xs md:text-sm xl:text-lg my-5" {...props} />
                       ),
                       h2: (props: any) => (
                         <h1 className='text-xl font-bold my-5' {...props} />
@@ -158,6 +70,92 @@ export default function Benefits({ posts, testimonialsPosts }: Props) {
               </div>
             ))}
           </Carousel>
+        </div>
+        <div id="benefitsSection">
+          <h1 className='mx-auto text-center text-6xl font-Julius mt-10 mb-28' >Poses & Benefits</h1>
+          <div className='flex flex-col-reverse'>
+            {posts.map((post, index) => (
+              index % 2 === 0 ? (
+                <div key={post._id} className='flex flex-col'>
+                  <div className='my-10 w-full xl:w-[75vw] mx-auto flex flex-col xl:flex-row justify-between items-center'>
+                    <AnimatePresence>
+                      <div className='mx-auto'>
+                        <motion.img
+                          initial={{ x: "-20vw", opacity: 0 }}
+                          whileInView={{ x: 0, opacity: 1 }}
+                          exit={{ x: "-20vw", opacity: 0 }}
+                          transition={{ duration: 1 }}
+                          className='rounded-lg max-h-[30vh] max-w-[50vw] xl:max-h-[20vh] xl:max-w-[20vw]'
+                          src={urlFor(post.benefitsImage).url()!} alt="" />
+                      </div>
+                    </AnimatePresence>
+                    <AnimatePresence>
+                      <motion.div initial={{ x: "20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "20vw", opacity: 0 }} transition={{ duration: 1 }} className=' w-5/6 xl:w-1/2 h-auto text-center'>
+                        <PortableText
+                          className=""
+                          dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                          projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                          content={post.benefitsText}
+                          serializers={{
+                            h1: (props: any) => (
+                              <h1 className="text-4xl font-bold my-5" {...props} />
+                            ),
+                            normal: (props: any) => (
+                              <h1 className="font-semibold text-sm xl:text-lg my-1" {...props} />
+                            ),
+                            h2: (props: any) => (
+                              <h1 className='text-2xl font-bold my-5' {...props} />
+                            ),
+                          }
+                          }
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+              ) : (
+                <div key={post._id} className='flex flex-col'>
+                  <div className='my-10 w-full xl:w-[75vw] mx-auto flex flex-col-reverse xl:flex-row justify-between items-center'>
+                    <AnimatePresence>
+                      <motion.div initial={{ x: "-20vw", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: "-20vw", opacity: 0 }} transition={{ duration: 1 }} className=' w-5/6 xl:w-1/2 h-auto text-center'>
+                        <PortableText
+                          className=""
+                          dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                          projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                          content={post.benefitsText}
+                          serializers={{
+                            h1: (props: any) => (
+                              <h1 className="text-4xl font-bold my-5" {...props} />
+                            ),
+                            normal: (props: any) => (
+                              <h1 className="font-semibold text-sm xl:text-lg my-1" {...props} />
+                            ),
+                            h2: (props: any) => (
+                              <h1 className='text-2xl font-bold my-5' {...props} />
+                            ),
+                          }
+                          }
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    <AnimatePresence>
+                    <div className='mx-auto'>
+                        <motion.img
+                          initial={{ x: "20vw", opacity: 0 }}
+                          whileInView={{ x: 0, opacity: 1 }}
+                          exit={{ x: "20vw", opacity: 0 }}
+                          transition={{ duration: 1 }}
+                          className='rounded-lg max-h-[30vh] max-w-[50vw] xl:max-h-[20vh] xl:max-w-[20vw]'
+                          src={urlFor(post.benefitsImage).url()!} alt="" />
+                      </div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+              )
+
+            ))}
+          </div>
+
         </div>
       </div>
 

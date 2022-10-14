@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Comfortaa", ...defaultTheme.fontFamily.sans],
-        Julius:[ "Julius Sans One", ...defaultTheme.fontFamily.sans],
+        Julius: ["Julius Sans One", ...defaultTheme.fontFamily.sans],
         Corinthia: ["Corinthia", ...defaultTheme.fontFamily.sans],
 
       },
@@ -25,10 +25,13 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
-    
-      require('flowbite/plugin'),
-      require('tailwind-scrollbar'),
-  
+    require('@tailwindcss/aspect-ratio'),
+    require('flowbite/plugin'),
+    require('tailwind-scrollbar'),
+
   ],
 }

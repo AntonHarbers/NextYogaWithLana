@@ -57,7 +57,7 @@ function Header() {
                             changeActive("empty")
                             changeActiveTab("Home")
                         }}
-                        className="cursor-pointer" src="/Logo.png" alt="Yoga" width={200} height={200} />
+                        className="cursor-pointer select-none" src="/Logo.png" alt="Yoga" width={200} height={200} />
                 </Link>
             </div>
             <div className=" flex flex-col lg:flex-row mx-auto items-center mb-10 xl:mr-10 xl:my-10" >
@@ -70,14 +70,13 @@ function Header() {
                         name={"Home"}
                         link={"/"}
                         array={[]} />
-
                     <NavbarItem
                         active={active}
                         changeActive={changeActive}
                         changeActiveTab={changeActiveTab}
                         activetab={activeTab}
-                        name={"Life Coaching"}
-                        link={"/life-coaching"}
+                        name={"Yoga"}
+                        link={"/yoga"}
                         array={[]} />
                     <NavbarItem
                         active={active}
@@ -93,8 +92,8 @@ function Header() {
                         changeActive={changeActive}
                         changeActiveTab={changeActiveTab}
                         activetab={activeTab}
-                        name={"Recipes"}
-                        link={"/recipes"}
+                        name={"Reiki"}
+                        link={"/reiki"}
                         array={[
                         ]} />
                 </div>
@@ -104,16 +103,16 @@ function Header() {
                         changeActive={changeActive}
                         changeActiveTab={changeActiveTab}
                         activetab={activeTab}
-                        name={"Yoga"}
-                        link={"/yoga"}
+                        name={"Guidance"}
+                        link={"/guidance"}
                         array={[]} />
                     <NavbarItem
                         active={active}
                         changeActive={changeActive}
                         changeActiveTab={changeActiveTab}
                         activetab={activeTab}
-                        name={"Reiki"}
-                        link={"/reiki"}
+                        name={"Recipes"}
+                        link={"/recipes"}
                         array={[
                         ]} />
                     <NavbarItem

@@ -31,7 +31,7 @@ export default function Reiki({ posts, workshopPosts, testimonialsPosts }: Props
     >
       <div id='content' className=' flex flex-col justify-center h-auto xl:h-[60rem] 2xl:h-[60rem] w-full'>
         <AnimatePresence>
-          <motion.h1 initial={{ x: -1000, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1.5}} className=' w-4/5 xl:w-3/4 mx-auto mb-10 xl:mb-32 text-center xl:text-start text-5xl font-semibold font-Julius'>Reiki - (霊気, /ˈreɪki/) - a Japanese form of energy healing</motion.h1>
+          <motion.h1 initial={{ x: -1000, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1.5}} className=' w-4/5 xl:w-3/4 mx-auto mb-10 xl:mb-32 text-center xl:text-start text-5xl font-semibold font-Julius'>Reiki - (霊気, /ˈreɪki/) - a form of energy healing</motion.h1>
         </AnimatePresence>
         <div className='flex flex-col xl:flex-row justify-center '>
           <div id='left' className='px-10 flex flex-col justify-center text-start w-full xl:w-2/4'>
@@ -60,6 +60,51 @@ export default function Reiki({ posts, workshopPosts, testimonialsPosts }: Props
           <div id='right' className='flex w-full my-10 xl:my-0 xl:w-1/4 items-center justify-center'>
             <img key={"rightImage"} className=' rounded-lg my-5 mx-5 w-[35vh] h-auto shadow-xl shadow-black' src={urlFor(posts[0].rightImage).url()!} alt="" />
           </div>
+        </div>
+
+      </div>
+      <div id='testimonials' className='h-[60rem] w-full flex flex-col mb-10 justify-center rounded-xl'>
+        <h1 className=' text-center mt-0 mb-20 text-5xl'>
+          Testimonials
+        </h1>
+        <div className='flex justify-center w-3/4 h-full max-h-[60vh] bg-greensLite mx-auto rounded-lg mb-20 px-0 md:px-10 shadow-md shadow-text'>
+          <Carousel slideInterval={5000}>
+            {testimonialsPosts.map((post) => (
+              <div key={post._id} className='flex flex-col px-10 md:px-20'>
+                <div className='my-5 mx-5'>
+                  <PortableText
+                    className="text-sm lg:text-lg mx-auto"
+                    dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                    projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                    content={post.body}
+                    serializers={{
+                      h1: (props: any) => (
+                        <h1 className="text-2xl my-5" {...props} />
+                      ),
+                      normal: (props: any) => (
+                        <h1 className="my-5 text-xs md:text-lg" {...props} />
+                      ),
+                      h2: (props: any) => (
+                        <h1 className='text-xl font-bold my-5' {...props} />
+                      ),
+                      li: ({ children }: any) => (
+                        <li className='ml-4 list-disc'>{children}</li>
+                      ),
+                      link: ({ href, children }: any) => (
+                        <a href={href} className="text-blue-500 hover:underline">
+                          {children}
+                        </a>
+                      ),
+                    }
+                    }
+                  />
+                </div>
+                <div className='text-sm my-5 text-center'>
+                  -{post.title}
+                </div>
+              </div>
+            ))}
+          </Carousel>
         </div>
 
       </div>
@@ -113,53 +158,6 @@ export default function Reiki({ posts, workshopPosts, testimonialsPosts }: Props
           </div>
         ))}
       </div>
-
-      <div id='testimonials' className='h-[60rem] w-full flex flex-col justify-center rounded-xl'>
-        <h1 className=' text-center my-20 text-5xl'>
-          Testimonials
-        </h1>
-        <div className='flex justify-center w-3/4 h-full bg-greensLite mx-auto rounded-lg mb-20 px-0 md:px-10 shadow-md shadow-text'>
-          <Carousel slideInterval={5000}>
-            {testimonialsPosts.map((post) => (
-              <div key={post._id} className='flex flex-col px-10 md:px-20'>
-                <div className='my-5 mx-5'>
-                  <PortableText
-                    className="text-sm lg:text-lg mx-auto"
-                    dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-                    projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-                    content={post.body}
-                    serializers={{
-                      h1: (props: any) => (
-                        <h1 className="text-2xl my-5" {...props} />
-                      ),
-                      normal: (props: any) => (
-                        <h1 className="my-5" {...props} />
-                      ),
-                      h2: (props: any) => (
-                        <h1 className='text-xl font-bold my-5' {...props} />
-                      ),
-                      li: ({ children }: any) => (
-                        <li className='ml-4 list-disc'>{children}</li>
-                      ),
-                      link: ({ href, children }: any) => (
-                        <a href={href} className="text-blue-500 hover:underline">
-                          {children}
-                        </a>
-                      ),
-                    }
-                    }
-                  />
-                </div>
-                <div className='text-sm my-5 text-center'>
-                  -{post.title}
-                </div>
-              </div>
-            ))}
-          </Carousel>
-        </div>
-
-      </div>
-
     </motion.div>
   )
 }

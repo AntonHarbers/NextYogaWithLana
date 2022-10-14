@@ -16,8 +16,8 @@ export default function About({ posts }: Props) {
             transition={{ ease: "easeInOut", duration: 2 }}
         >
             <div id='contents' className='w-full flex flex-col'>
-                <motion.h1 initial={{ x: 1500, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1, delay: .5 }} className='w-full text-6xl font-Julius text-center xl:text-end my-2 xl:my-10 mx-auto'>About Me</motion.h1>
-                <div id='profileDiv' className='flex flex-col xl:flex-row mx-auto w-full my-10 items-center '>
+                <motion.h1 initial={{ x: 1500, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1, delay: .5 }} className='w-full text-6xl font-Julius text-center xl:text-end my-2 xl:my-10 mx-auto'>About Lana</motion.h1>
+                <div id='profileDiv' className='flex flex-col md:flex-row mx-auto w-full my-10 items-center '>
                     <motion.div initial={{x:-1500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:1, delay:1}} className='mx-auto my-10 '>
                         <img className='rounded-full mx-auto w-full h-auto shadow-xl shadow-stone-500 hover:scale-110 transition duration-500 ease-in' src={urlFor(posts[0].profilePicture).url()!} alt="" />
                     </motion.div>
