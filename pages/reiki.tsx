@@ -31,7 +31,7 @@ export default function Reiki({ posts, workshopPosts, testimonialsPosts }: Props
     >
       <div id='content' className=' flex flex-col justify-center h-auto xl:h-[60rem] 2xl:h-[60rem] w-full'>
         <AnimatePresence>
-          <motion.h1 initial={{ x: -1000, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1.5}} className=' w-4/5 xl:w-3/4 mx-auto mb-10 xl:mb-32 text-center xl:text-start text-5xl font-semibold font-Julius'>Reiki - (霊気, /ˈreɪki/) - a form of energy healing</motion.h1>
+          <motion.h1 initial={{ x: -1000, opacity:0 }} animate={{ x: 0, opacity:1 }} transition={{ duration: 1.5}} className=' w-4/5 xl:w-3/4 mx-auto mb-10 xl:mb-32 text-center xl:text-start text-5xl font-semibold font-Julius'>Reiki - a form of energy healing</motion.h1>
         </AnimatePresence>
         <div className='flex flex-col xl:flex-row justify-center '>
           <div id='left' className='px-10 flex flex-col justify-center text-start w-full xl:w-2/4'>
