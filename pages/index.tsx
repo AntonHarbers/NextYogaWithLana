@@ -19,8 +19,8 @@ export default function Home({ posts, blogPosts }: Props) {
     >
       <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
 
-        <div id="leftcol" 
-        className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
+        <div id="leftcol"
+          className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
           <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius">YOGA</motion.h1>
           <h1 className=" font-Julius">·</h1>
           <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius">SPIRITUALITY</motion.h1>
@@ -56,35 +56,35 @@ export default function Home({ posts, blogPosts }: Props) {
           <div className="relative hidden 2xl:flex justify-center">
             <img className="absolute h-[75rem] w-auto mt-[-15rem]" src="/home/front.png" />
             <AnimatePresence>
-            <motion.div
-              className="absolute px-5 py-10 h-auto w-[40rem] min-w-[20rem] bg-primary justify-center border-8 border-gray-300"
-              initial={{ y: 500 , opacity:0}}
-              whileInView={{ y: 100, opacity:1}}
-              viewport={{}}
-              exit={{ y: 500, opacity:0}}
-              transition={{ ease: "easeInOut", duration: 1 }}
-            >
-              <PortableText
-                className="text-center "
-                dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-                projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-                content={posts[0].body}
-                serializers={{
-                  h1: (props: any) => (
-                    <h1 className="text-xl 2xl:text-2xl font-bold my-2" {...props} />
-                  ),
-                  normal: (props: any) => (
-                    <h1 className="font-semibold text-xs 2xl:text-base my-2" {...props} />
-                  ),
-                  h2: (props: any) => (
-                    <h1 className=' text-sm 2xl:text-xl font-bold my-2' {...props} />
-                  ),
-                }
-                }
-              />
-            </motion.div>
-          </AnimatePresence>
-          <img className="absolute h-[75rem]  w-auto mt-[-15rem]" src="/home/back.png" />
+              <motion.div
+                className="absolute px-5 py-10 h-auto w-[40rem] min-w-[20rem] bg-primary justify-center border-8 border-gray-300"
+                initial={{ y: 500, opacity: 0 }}
+                whileInView={{ y: 100, opacity: 1 }}
+                viewport={{}}
+                exit={{ y: 500, opacity: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+              >
+                <PortableText
+                  className="text-center "
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                  content={posts[0].body}
+                  serializers={{
+                    h1: (props: any) => (
+                      <h1 className="text-xl 2xl:text-2xl font-bold my-2" {...props} />
+                    ),
+                    normal: (props: any) => (
+                      <h1 className="font-semibold text-xs 2xl:text-base my-2" {...props} />
+                    ),
+                    h2: (props: any) => (
+                      <h1 className=' text-sm 2xl:text-xl font-bold my-2' {...props} />
+                    ),
+                  }
+                  }
+                />
+              </motion.div>
+            </AnimatePresence>
+            <img className="absolute h-[75rem]  w-auto mt-[-15rem]" src="/home/back.png" />
           </div>
         </div>
         <div id="rightcol" className="flex 2xl:hidden mx-10 flex-col w-full justify-center">
@@ -121,7 +121,7 @@ export default function Home({ posts, blogPosts }: Props) {
         </div>
       </div>
 
-      <div id='profileDiv' className='flex flex-col w-4/5 xl:w-2/3 mx-10 my-10 xl:my-0'>
+      <div id='blog section' className='flex flex-col w-4/5 xl:w-2/3 mx-10 my-10 xl:my-0'>
         <div className='mx-auto text-center text-6xl font-bold p-5 m-20 '>
           Lana's Blog
         </div>
@@ -131,13 +131,14 @@ export default function Home({ posts, blogPosts }: Props) {
             whileInView={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 2 }}
           >
-            <div className="flex mx-auto w-full text-4xl items-center font-bold border-t-2 border-b-2 border-greensLite py-5">
-              <div className=''>
-                <img className='rounded-full mr-20 w-[15vh] h-[15vh] shadow-xl' src={urlFor(post.headerPicture).url()!} alt="" />
+            <div className="mx-auto flex flex-col md:flex-row-reverse w-full text-4xl items-center font-bold border-t-2 border-b-2 border-greensLite py-5">
+            <div className="w-full text-center md:text-start">
+                {post.name}
               </div>
-              {post.name}
+              <div className="w-auto">
+                <img className='my-5 md:my-0 rounded-full mr-0 md:mr-20 w-[10vh] h-[10vh] shadow-xl' src={urlFor(post.headerPicture).url()!} alt="" />
+              </div>
             </div>
-
             <div className='mx-auto my-10 w-full border-dotted border-b-2'>
               <PortableText
                 className=' flex flex-col text-start'
