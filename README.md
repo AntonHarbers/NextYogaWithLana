@@ -7,4 +7,4 @@ A website created for Lana Harbers using
 
 Check it out below:
 
-Lanaharbers.de
+https://www.Lanaharbers.de
