@@ -23,7 +23,7 @@ export default function Gallary({ imagesPosts }: Props) {
                             <h1 className=" text-center text-4xl my-auto font-Julius"># {(post.name)}</h1>
                             <AnimatePresence>
                                 <motion.div initial={{ x: 500, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} exit={{ x: 500, opacity: 0 }} transition={{ delay: 0, duration: 1 }}>
-                                    <div className="flex flex-col rounded-xl w-full xl:w-5/6 mx-auto my-32 h-[40vh] bg-greensLite  " key={index}>
+                                    <div className="flex flex-col rounded-xl w-full xl:w-5/6 mx-auto my-32 h-[40vhr] bg-greensLite  " key={index}>
                                         <Carousel slideInterval={5000} >
                                             {post.gallaryImages.map((image, indexTwo) => (
                                                 <img className=" h-5/6 w-auto mx-automy-[-1rem] rounded-lg " src={urlFor(image).url()!} alt={index.toString()} />
@@ -51,7 +51,7 @@ export default function Gallary({ imagesPosts }: Props) {
                         </>)
                 ))}
             </div>
-            <div className="flex flex-col 2xl:hidden w-4/5 h-auto mx-auto">
+            <div className="flex flex-col 2xl:hidden w-2/5 h-auto mx-auto">
                 {imagesPosts.map((post, index) => (
                     index % 2 === 0 ? (
                         <>
