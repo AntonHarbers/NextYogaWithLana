@@ -56,7 +56,7 @@ export default function Coaching({ guidancePosts ,posts, testimonailPosts, medit
     >
 
 <div id="guidance section" className=" h-auto bg-secondary flex flex-col">
-        <div id="headerText" className="mx-auto my-20 text-9xl font-bold text-greens font-Corinthia ">
+        <div id="headerText" className="mx-auto my-20 text-8xl font-bold text-greens font-Corinthia ">
           {guidancePosts[0].title}
         </div>
         <div id="content" className="flex flex-col xl:flex-row w-5/6 mx-auto mb-24">
@@ -71,7 +71,7 @@ export default function Coaching({ guidancePosts ,posts, testimonailPosts, medit
                   <h1 className="text-2xl font-bold my-2" {...props} />
                 ),
                 normal: (props: any) => (
-                  <h1 className="font-semibold text-3xl my-2 py-5 text-primary" {...props} />
+                  <h1 className="font-semibold text-4xl my-2 py-5 text-primary font-Corinthia" {...props} />
                 ),
                 h2: (props: any) => (
                   <h1 className='text-4xl text-center font-bold py-2' {...props} />
