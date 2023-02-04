@@ -60,9 +60,9 @@ export default function Coaching({ guidancePosts ,posts, testimonailPosts, medit
           {guidancePosts[0].title}
         </div>
         <div id="content" className="flex flex-col xl:flex-row w-5/6 mx-auto mb-24">
-          <div id="leftSide" className=" w-full xl:w-1/2 flex flex-col justify-center mb-10 xl:mb-0">
+          <div id="leftSide" className=" w-full xl:w-1/2 flex flex-col justify-center mb-0 xl:mb-0">
             <PortableText
-              className="w-full rounded-lg py-10 bg-greens mb-10 xl:mb-0 mr-0 xl:mr-10 text-center p-10"
+              className="w-full rounded-lg py-10 bg-greens mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-center"
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
               content={guidancePosts[0].body}
@@ -71,7 +71,7 @@ export default function Coaching({ guidancePosts ,posts, testimonailPosts, medit
                   <h1 className="text-2xl font-bold my-2" {...props} />
                 ),
                 normal: (props: any) => (
-                  <h1 className="font-semibold text-4xl my-2 py-5 text-primary font-Corinthia" {...props} />
+                  <h1 className="font-semibold text-2xl my-2 text-primary font-julius" {...props} />
                 ),
                 h2: (props: any) => (
                   <h1 className='text-4xl text-center font-bold py-2' {...props} />
