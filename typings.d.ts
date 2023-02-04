@@ -123,6 +123,18 @@ export interface CoachingPost{
     body: [object];
 }
 
+export interface GuidancePost{
+    _id: string;
+    title: string;
+    mainImage: {
+        asset: {
+            url: string;
+        };
+    };
+    headerText: [object];
+    body: [object];
+}
+
 export interface CoachingTestimonial{
     _id: string;
     name: string;

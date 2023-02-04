@@ -1,12 +1,13 @@
 import { GetStaticProps } from "next"
 import { sanityClient, urlFor } from '../sanity';
 import PortableText from "react-portable-text"
-import { CoachingPost, CoachingTestimonial, MeditationPost, LeelaPost, LeelaTestimonials } from "../typings"
+import { CoachingPost, CoachingTestimonial, MeditationPost, LeelaPost, LeelaTestimonials, GuidancePost } from "../typings"
 import { AnimatePresence, motion } from 'framer-motion'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useState } from "react"
 
 interface Props {
+  guidancePosts: [GuidancePost]
   posts: [CoachingPost],
   testimonailPosts: [CoachingTestimonial]
   meditationPosts: [MeditationPost]
@@ -24,7 +25,7 @@ interface IFormInput {
 }
 
 
-export default function Coaching({ posts, testimonailPosts, meditationPosts, leelaPosts, leelaTestimonialsPosts }: Props) {
+export default function Coaching({ guidancePosts ,posts, testimonailPosts, meditationPosts, leelaPosts, leelaTestimonialsPosts }: Props) {
 
   const [active, setActive] = useState(false)
 
@@ -53,10 +54,44 @@ export default function Coaching({ posts, testimonailPosts, meditationPosts, lee
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1 }}
     >
+
+<div id="guidance section" className=" h-auto bg-secondary flex flex-col">
+        <div id="headerText" className="mx-auto my-20 text-9xl font-bold text-greens font-Corinthia ">
+          {guidancePosts[0].title}
+        </div>
+        <div id="content" className="flex flex-col xl:flex-row w-5/6 mx-auto mb-24">
+          <div id="leftSide" className=" w-full xl:w-1/2 flex flex-col justify-center mb-10 xl:mb-0">
+            <PortableText
+              className="w-full rounded-lg py-10 bg-greens mb-10 xl:mb-0 mr-0 xl:mr-10 text-center p-10"
+              dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+              projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+              content={guidancePosts[0].body}
+              serializers={{
+                h1: (props: any) => (
+                  <h1 className="text-2xl font-bold my-2" {...props} />
+                ),
+                normal: (props: any) => (
+                  <h1 className="font-semibold text-3xl my-2 py-5 text-primary" {...props} />
+                ),
+                h2: (props: any) => (
+                  <h1 className='text-4xl text-center font-bold py-2' {...props} />
+                ),
+              }
+              } />
+            
+          </div>
+          <div
+            className=" w-full xl:w-1/2 flex items-center justify-center xl:justify-end ">
+              <img  className=" relative w-1/2 h-auto border-r-4 border-t-4 border-greens border-opacity-50 rounded-sm" src={urlFor(guidancePosts[0].mainImage).url()!} alt="" />
+          </div>
+
+        </div>
+      </div>
+
       <div id="coaching section" className=" h-auto flex flex-col">
         <motion.div
           id="titletext"
-          className=" text-center xl:text-start mx-auto w-5/6 text-5xl 2xl:text-6xl mt-2 mb-10 font-Julius"
+          className=" text-center xl:text-start mx-auto w-5/6 text-5xl 2xl:text-6xl mb-10 font-Julius mt-20"
           initial={{ opacity: 0, x: -1000 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ ease: "easeInOut", duration: 2 }}
@@ -393,6 +428,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     body
   }`;
 
+  const guidanceQuery = `
+  *[_type=="guidance"]{
+    _id,
+    title,
+    mainImage,
+    headerText,
+    body
+  }`;
+
 
   const testimonialQuery = `
   *[_type=="coachingTestimonials"]{
@@ -428,14 +472,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }`;
 
 
+  const guidancePosts = await sanityClient.fetch(guidanceQuery)
   const posts = await sanityClient.fetch(coachQuery)
   const testimonailPosts = await sanityClient.fetch(testimonialQuery)
   const meditationPosts = await sanityClient.fetch(meditationQuery)
   const leelaPosts = await sanityClient.fetch(leelaQuery)
   const leelaTestimonialsPosts = await sanityClient.fetch(leelaTestimonialsQuery)
+  
 
   return {
     props: {
+      guidancePosts,
       posts,
       testimonailPosts,
       meditationPosts,
