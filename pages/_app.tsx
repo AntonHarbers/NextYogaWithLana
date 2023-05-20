@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app'
 import Header from '../components/Header'
 import Head from 'next/head'
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className='flex flex-col h-screen scrollbar-thin scrollbar-thumb-secondary scrollbar-track-primary overflow-x-hidden'>

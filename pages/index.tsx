@@ -9,6 +9,29 @@ interface Props {
   blogPosts: [BlogPost]
 }
 
+import React from 'react';
+import YouTube, { YouTubeProps } from 'react-youtube';
+
+function Example() {
+  const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+    // access to player in all event handlers via event.target
+    // event.target.pauseVideo();
+    event.target.playVideo();
+  }
+
+  const opts: YouTubeProps['opts'] = {
+    height: '300',
+    width: '200',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+      
+    },
+  };
+
+  return <YouTube videoId="QaU29GGFg1A" opts={opts}  onReady={onPlayerReady}  />;
+}
+
 export default function Home({ posts, blogPosts }: Props) {
 
   return (
@@ -17,12 +40,12 @@ export default function Home({ posts, blogPosts }: Props) {
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1 }}
     >
-      <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
+    <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
 
         <div id="leftcol"
           className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
           <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius">YOGA</motion.h1>
-          <h1 className=" font-Julius">·</h1>
+          <motion.div className="mx-auto"><Example/></motion.div>
           <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius">SPIRITUALITY</motion.h1>
           <h1 className=" font-Julius">·</h1>
           <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: 1.2 }} className=" font-Julius">LIFE COACHING</motion.h1>
@@ -44,7 +67,6 @@ export default function Home({ posts, blogPosts }: Props) {
           </div>
         </div>
       </div>
-
       <div className="flex h-[80rem] 2xl:h-[60rem] w-full bg-secondary">
         <div id="leftcol" className="hidden xl:flex flex-col items-center w-3/5 mx-auto my-auto">
           <div className=" h-auto w-3/5 bg-primary shadow-inner shadow-gray-800 rounded-full p-12 2xl:py-0 my-10">

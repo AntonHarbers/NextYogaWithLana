@@ -65,6 +65,18 @@ export default function Coaching({
       });
   };
 
+  // <AnimatePresence>
+  //                     <div className='mx-auto'>
+  //                       <motion.img
+  //                         initial={{ x: "-20vw", opacity: 0 }}
+  //                         whileInView={{ x: 0, opacity: 1 }}
+  //                         exit={{ x: "-20vw", opacity: 0 }}
+  //                         transition={{ duration: 1 }}
+  //                         className='rounded-lg max-h-[30vh] max-w-[50vw] xl:max-h-[20vh] xl:max-w-[20vw]'
+  //                         src={urlFor(post.benefitsImage).url()!} alt="" />
+  //                     </div>
+  //                   </AnimatePresence>
+
   return (
     <motion.div
       className="flex flex-col m-auto w-full py-2 justify-center"
@@ -73,17 +85,24 @@ export default function Coaching({
       transition={{ ease: "easeInOut", duration: 1 }}
     >
       <div id="guidance section" className=" h-auto bg-secondary flex flex-col">
-        <div
-          id="headerText"
-          className="mx-auto my-20 text-8xl font-bold text-greens font-Corinthia "
-        >
-          {guidancePosts[0].title}
-        </div>
+          <motion.div
+            initial={{ x: -1000 }}
+            animate={{ x: 0 }}
+            transition={{ ease: "easeInOut", duration: 2 }}
+            id="headerText"
+            className="mx-auto my-20 text-8xl font-bold text-greens font-Corinthia "
+          >
+            {guidancePosts[0].title}
+          </motion.div>
+
         <div
           id="content"
           className="flex flex-col xl:flex-row w-5/6 mx-auto mb-24"
         >
-          <div
+          <motion.div
+            initial={{ x: -1000 }}
+            animate={{ x: 0 }}
+            transition={{ ease: "easeInOut", duration: 2.5 }}
             id="leftSide"
             className=" w-full xl:w-1/2 flex flex-col justify-center mb-0 xl:mb-0"
           >
@@ -110,14 +129,19 @@ export default function Coaching({
                 ),
               }}
             />
-          </div>
-          <div className=" w-full xl:w-1/2 flex items-center justify-center xl:justify-end xl:my-0 my-20">
+          </motion.div>
+          <motion.div
+            initial={{ x: 1000 }}
+            animate={{ x: 0 }}
+            transition={{ ease: "easeInOut", duration: 2.5 }}
+            className=" w-full xl:w-1/2 flex items-center justify-center xl:justify-end xl:my-0 my-20"
+          >
             <img
               className=" relative w-1/2 h-auto border-8 border-greens rounded-sm"
               src={urlFor(guidancePosts[0].mainImage).url()!}
               alt=""
             />
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -254,7 +278,8 @@ export default function Coaching({
         </div>
       </div>
 
-      <div id="meditation section"
+      <div
+        id="meditation section"
         className=" h-auto bg-secondary flex flex-col"
       >
         <div
