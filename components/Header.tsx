@@ -46,7 +46,7 @@ function Header() {
   return (
     <div className="flex flex-col justify-center xl:flex-row w-full h-auto bg-primary">
       
-      <div className=" h-36 w-36 mx-auto xl:mx-5 my-5 flex flex-row">
+      <div className=" h-36 w-36 mx-auto xl:mx-5 mt-5 flex flex-row">
         <Link href={"/"}>
           <motion.img
             initial={{ marginLeft: 300, opacity: 0 }}
@@ -66,12 +66,12 @@ function Header() {
         
       </div>
      
-      <div className=" flex flex-col lg:flex-row mx-auto items-center mb-10 xl:mr-10 xl:my-10">
+      <div className=" flex flex-col lg:flex-row mx-auto items-center mb-5 xl:mr-10 xl:my-10">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 2 }}
-        className="flex flex-row w-20 justify-center"
+        className="flex flex-row w-20 justify-center mb-5"
       >
         <Link
           href={"https://www.youtube.com/@lanaharbers"}
