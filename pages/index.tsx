@@ -20,16 +20,16 @@ function Example() {
   }
 
   const opts: YouTubeProps['opts'] = {
-    height: '300',
-    width: '200',
+    height: '400',
+    width: '300',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
-      
+
     },
   };
 
-  return <YouTube videoId="QaU29GGFg1A" opts={opts}  onReady={onPlayerReady}  />;
+  return <YouTube videoId="QaU29GGFg1A" opts={opts} onReady={onPlayerReady} />;
 }
 
 export default function Home({ posts, blogPosts }: Props) {
@@ -40,18 +40,21 @@ export default function Home({ posts, blogPosts }: Props) {
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1 }}
     >
-    <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[80rem] w-full items-center 2xl:items-start ">
+      <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[50rem] w-full items-center 2xl:items-start ">
 
         <div id="leftcol"
           className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-full justify-between text-5xl md:text-6xl pb-20 xl:pt-20 2xl:pb-96 mt-0 xl:mt-20 ">
-          <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius mb-3">YOGA</motion.h1>
-          <motion.div className="mx-auto"><Example/></motion.div>
-          <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius mt-3">SPIRITUALITY</motion.h1>
-          <h1 className=" font-Julius">·</h1>
-          <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: 1.2 }} className=" font-Julius">LIFE COACHING</motion.h1>
+          <div className="mx-auto mt-[-5rem] mb-2">
+            <Example />
+
+          </div>
+          <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius mb-3">Educator</motion.h1>
+          <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius mt-3">Fitness & </motion.h1>
+          <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius mt-3">Life Coach</motion.h1>
+
         </div>
 
-        <div id="rightcol" className="xl:grid xl:grid-cols-2 w-full mx-auto hidden my-auto">
+        <div id="rightcol" className="xl:grid xl:grid-cols-2 w-full mx-auto hidden my-5">
           <motion.div
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ repeat: Infinity, duration: 5 }}
@@ -62,7 +65,7 @@ export default function Home({ posts, blogPosts }: Props) {
             transition={{ repeat: Infinity, duration: 5 }}
             className=" rounded-full self-end justify-self-start ml-20 h-[13vw] w-[13vw] shadow-inner shadow-gray-800 bg-secondary">
           </motion.div>
-          <div className="col-span-2 h-[30vw] w-[30vw] justify-self-start mx-auto rounded-full shadow-inner shadow-gray-800 bg-secondary overflow-visible">
+          <div className="col-span-2 h-[28vw] w-[28vw] justify-self-start mx-auto rounded-full shadow-inner shadow-gray-800 bg-secondary overflow-visible">
             <img src={urlFor(posts[0].rightImage).url()!} className="relative scale-[175%] top-16" />
           </div>
         </div>
@@ -154,7 +157,7 @@ export default function Home({ posts, blogPosts }: Props) {
             transition={{ ease: "easeInOut", duration: 2 }}
           >
             <div className="mx-auto flex flex-col md:flex-row-reverse w-full text-4xl items-center font-bold border-t-2 border-b-2 border-greensLite py-5">
-            <div className="w-full text-center md:text-start">
+              <div className="w-full text-center md:text-start">
                 {post.name}
               </div>
               <div className="w-auto">
