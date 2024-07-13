@@ -12,34 +12,10 @@ function Header() {
   };
 
   const changeActive = (name: string) => {
-    console.log(name);
-    switch (name) {
-      case "Yoga":
-        if (active == "Yoga") {
-          setActive("empty");
-          console.log("work");
-        } else {
-          setActive(name);
-          console.log("work");
-        }
-        break;
-      case "Reiki":
-        if (active == "Reiki") {
-          setActive("empty");
-        } else {
-          setActive(name);
-        }
-        break;
-      case "More":
-        if (active == "More") {
-          setActive("empty");
-        } else {
-          setActive(name);
-        }
-        break;
-      default:
-        setActive("empty");
-        break;
+    if (active == name) {
+      setActive('empty')
+    } else {
+      setActive(name)
     }
   };
 
@@ -122,7 +98,7 @@ function Header() {
             changeActiveTab={changeActiveTab}
             activetab={activeTab}
             name={"Fitness"}
-            link={"/yoga"}
+            link={"/fitness"}
             array={[]}
           /> */}
           <NavbarItem

@@ -150,7 +150,7 @@ export default function Home({ posts, blogPosts }: Props) {
         <div className='mx-auto text-center text-6xl font-bold p-5 m-20 '>
           Lana's Blog
         </div>
-        {blogPosts.slice(0).reverse().map((post, index) => (
+        {blogPosts.slice(0).map((post, index) => (
           <motion.div key={index} className="my-10"
             initial={{ opacity: .5 }}
             whileInView={{ opacity: 1 }}
