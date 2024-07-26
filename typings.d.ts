@@ -142,7 +142,7 @@ export interface CoachingTestimonial {
 
 export interface FitnessPost {
   _id: string;
-  title: string;
+  name: string;
   headerImage: {
     asset: {
       url: string;

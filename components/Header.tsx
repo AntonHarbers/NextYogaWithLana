@@ -92,7 +92,7 @@ function Header() {
             link={"/guidance"}
             array={[]}
           />
-          {/* <NavbarItem
+          <NavbarItem
             active={active}
             changeActive={changeActive}
             changeActiveTab={changeActiveTab}
@@ -100,7 +100,7 @@ function Header() {
             name={"Fitness"}
             link={"/fitness"}
             array={[]}
-          /> */}
+          />
           <NavbarItem
             active={active}
             changeActive={changeActive}

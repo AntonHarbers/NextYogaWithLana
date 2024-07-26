@@ -1,20 +1,103 @@
 import { GetStaticProps } from "next";
 import { FitnessPost } from "../../typings";
 import { AnimatePresence, motion, useScroll } from "framer-motion"
-import { sanityClient } from "../../sanity";
+import { sanityClient, urlFor } from "../../sanity";
+import PortableText from "react-portable-text";
+import Image from "next/image";
+import Evaluation from "./evaluation";
+import Pilates from "./pilates";
 
 interface Props {
-    fitnessPost: FitnessPost
+    fitnessPosts: FitnessPost[]
 }
 
-export default function Fitness({ fitnessPost }: Props) {
+export default function Fitness({ fitnessPosts }: Props) {
+
+    console.log(fitnessPosts)
+
+    // Fitness post 1 is Fitness Made Simple
+    // Fitness post 2 is Evaluation
+    // Fitness post 3 is reformer/Pilates
+
+    return <div className="w-full flex items-center text-center justify-center">Work in Progress</div>
+
     return (
-        <motion.div className="flex flex-col items-center m-auto w-full py-2"
+        <motion.div className="flex flex-col items-center m-auto w-full py-2 bg-secondary"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 1 }}
         >
-            Hello World
+            {fitnessPosts[0].headerImage &&
+                <Image src={urlFor(fitnessPosts[0].headerImage).url()} alt="" width={200} height={200} className="rounded-full my-5" />
+            }
+            <h1
+                className="font-julius font-bold text-3xl mb-5 w-[50%] mt-10 text-center "
+            >
+                {fitnessPosts[0].name}
+
+            </h1>
+            <PortableText
+                className="w-full rounded-lg py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-center"
+                dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                content={fitnessPosts[0].body}
+                serializers={{
+                    h1: (props: any) => (
+                        <h1 className="text-xl my-2" {...props} />
+                    ),
+                    normal: (props: any) => (
+                        <h1
+                            className=" text-xl my-2 text-greens font-julius"
+                            {...props}
+                        />
+                    ),
+                    h2: (props: any) => (
+                        <h1
+                            className="text-4xl text-center font-bold py-2"
+                            {...props}
+                        />
+                    ),
+                }}
+            />
+
+            {fitnessPosts[0].footerImage &&
+                <Image src={urlFor(fitnessPosts[0].footerImage).url()} alt="" width={200} height={200} className="rounded-full my-5" />
+            }
+            <h1
+                className="font-julius font-bold text-2xl mb-5 w-[50%] mt-10 text-center "
+            >            {fitnessPosts[0].subtitle}
+            </h1>
+            <PortableText
+                className="w-full rounded-lg py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-center"
+                dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                content={fitnessPosts[0].subBody}
+                serializers={{
+                    h1: (props: any) => (
+                        <h1 className="text-xl my-2" {...props} />
+                    ),
+                    normal: (props: any) => (
+                        <h1
+                            className=" text-xl my-2 text-greens font-julius"
+                            {...props}
+                        />
+                    ),
+                    h2: (props: any) => (
+                        <h1
+                            className="text-4xl text-center font-bold py-2"
+                            {...props}
+                        />
+                    ),
+                }}
+            />
+
+            {fitnessPosts[1] &&
+                <Evaluation fitnessPost={fitnessPosts[1]} />
+            }
+
+            {fitnessPosts[2] &&
+                <Pilates fitnessPost={fitnessPosts[2]} />
+            }
         </motion.div>
     )
 }
@@ -25,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const query = `
     *[_type=="fitness"]{
       _id,
-      title,
+      name,
       headerImage,
       body,
       subtitle,
@@ -33,11 +116,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       footerImage
     }`;
 
-    const fitness = await sanityClient.fetch(query)
+    const fitnessPosts = await sanityClient.fetch(query)
 
     return {
         props: {
-            fitness,
+            fitnessPosts,
         },
         revalidate: 60,
     }
