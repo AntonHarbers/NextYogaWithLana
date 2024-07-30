@@ -4,8 +4,8 @@ import { AnimatePresence, motion, useScroll } from "framer-motion"
 import { sanityClient, urlFor } from "../../sanity";
 import PortableText from "react-portable-text";
 import Image from "next/image";
-import Evaluation from "./evaluation";
-import Pilates from "./pilates";
+import Evaluation from "../../components/fitnessComponents/evaluation";
+import Pilates from "../../components/fitnessComponents/pilates";
 
 interface Props {
     fitnessPosts: FitnessPost[]
