@@ -19,11 +19,11 @@ export default function Nutrition({ post }: Props) {
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 1 }}
         >
-            <motion.div initial={{x:-1000, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:1.5}} className=" w-5/6 2xl:w-2/6 text-center mt-2 2xl:mt-20 mx-auto flex flex-col">
+            <motion.div initial={{ x: -1000, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1.5 }} className=" w-5/6 2xl:w-2/6 text-center mt-2 2xl:mt-20 mx-auto flex flex-col">
                 <h1 className=" font-Julius text-6xl ">
                     Cook Book
                 </h1>
-                <h1 className=" my-20 2xl:my-32 text-xl mx-auto w-5/6 xl:w-1/2">
+                <h1 className=" my-6 2xl:my-32 text-xl mx-auto w-5/6 xl:w-1/2">
                     Creativity is a very important component in our life. Go to the kitchen and simply add some new dishes to your weekly Menu. Delight yourself and your beloved ones by combining new and known ingredients.
 
                     Boost the sense of pleasure with a variety of new tastes that, inevitably, will positively affect the quality of your life!
@@ -34,7 +34,7 @@ export default function Nutrition({ post }: Props) {
                 </h1>
             </motion.div>
 
-            <motion.div initial={{x:1000, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:1.5, delay:1}} className="h-[70vh] rounded-lg text-white bg-greens w-4/5 2xl:w-1/2 mx-auto 2xl:ml-0 2xl:mr-52 my-10">
+            <motion.div initial={{ x: 1000, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1.5, delay: 1 }} className="h-[70vh] rounded-lg text-white bg-greens w-4/5 2xl:w-1/2 mx-auto 2xl:ml-0 2xl:mr-52 my-10">
                 <Carousel slideInterval={10000}>
                     {post.map((post) => (
                         <div key={post._id} className=" overflow-y-scroll flex flex-col h-full p-10 w-full px-10 2xl:px-32 scrollbar-thin scrollbar-thumb-greensLite scrollbar-track-greens overflow-x-hidden">

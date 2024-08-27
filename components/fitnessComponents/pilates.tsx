@@ -18,7 +18,7 @@ export default function Pilates({ fitnessPost }: { fitnessPost: FitnessPost }) {
             </h1>
             <div className='flex flex-col xl:flex-row justify-center items-center'>
                 <PortableText
-                    className="w-[50%] rounded-lg mb-0 xl:mb-0 mr-0 xl:mr-10 text-start"
+                    className="w-[90%] xl:w-[50%] rounded-lg mb-0 xl:mb-0 mr-0 xl:mr-10 text-start"
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
                     content={fitnessPost.body}

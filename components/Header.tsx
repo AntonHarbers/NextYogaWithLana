@@ -22,7 +22,7 @@ function Header() {
   return (
     <div className="flex flex-col justify-center xl:flex-row w-full h-auto bg-primary">
 
-      <div className=" h-36 w-36 mx-auto xl:mx-5 mt-5 flex flex-row">
+      <div className=" h-36 w-auto xl:w-36 mx-auto xl:mx-5 mt-5 flex flex-row">
         <Link href={"/"}>
           <motion.img
             initial={{ marginLeft: 300, opacity: 0 }}
@@ -39,39 +39,47 @@ function Header() {
             height={200}
           />
         </Link>
-
-      </div>
-
-      <div className=" flex flex-col lg:flex-row mx-auto items-center mb-5 xl:mr-10 xl:my-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 2 }}
-          className="flex flex-row w-20 justify-center mb-5"
+          className="flex flex-row justify-center gap-2 items-center mb-5 xl:mb-0 "
         >
-          <Link
-            href={"https://www.youtube.com/@lanaharbers"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <a target="_blank">
-              <img
-                src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png"
-                alt="youtube"
-                className="h-8 w-8 rounded-md my-1 mx-1 cursor-pointer"
-              />
-            </a>
-          </Link>
           <Link href={"https://www.instagram.com/lana_harbers/"}>
-            <a target="_blank">
+            <a target="_blank" className="flex flex-col items-center justify-center hover:scale-110 transition-all ">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-square2-512.png"
                 alt="instagram"
                 className="h-8 w-8 rounded-md my-1 mx-1"
               />
+              <div className="text-sm">
+                Instagram
+              </div>
             </a>
           </Link>
+          <Link
+            href={"https://www.youtube.com/@lanaharbers"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <a target="_blank" className="flex flex-col items-center justify-center hover:scale-110 transition-all "
+            >
+              <img
+                src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png"
+                alt="youtube"
+                className="h-8 w-8 rounded-md my-1 mx-1 cursor-pointer"
+              />
+              <div className="text-sm">
+                Youtube
+              </div>
+            </a>
+          </Link>
+
         </motion.div>
+      </div>
+
+      <div className=" flex flex-col lg:flex-row mx-auto items-center mb-4 xl:mb-0 xl:mr-10 ">
+
         <div className="flex">
 
           <NavbarItem
@@ -88,8 +96,8 @@ function Header() {
             changeActive={changeActive}
             changeActiveTab={changeActiveTab}
             activetab={activeTab}
-            name={"Coaching"}
-            link={"/guidance"}
+            name={"Fitness"}
+            link={"/fitness"}
             array={[]}
           />
           <NavbarItem
@@ -97,10 +105,11 @@ function Header() {
             changeActive={changeActive}
             changeActiveTab={changeActiveTab}
             activetab={activeTab}
-            name={"Fitness"}
-            link={"/fitness"}
+            name={"Coaching"}
+            link={"/guidance"}
             array={[]}
           />
+
           <NavbarItem
             active={active}
             changeActive={changeActive}
@@ -112,7 +121,7 @@ function Header() {
           />
 
         </div>
-        <div className="flex mt-10 lg:mt-0 lg:mb-0">
+        <div className="flex mt-6 lg:mt-0 lg:mb-0">
 
           <NavbarItem
             active={active}
@@ -153,7 +162,7 @@ function Header() {
           />
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 export default Header;

@@ -27,20 +27,18 @@ export default function Fitness({ fitnessPosts }: Props) {
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 1 }}
         >
-            <div className="flex flex-row w-full items-center justify-center">
-                <div className="flex flex-col items-center w-[50%]">
-                    {fitnessPosts[0].headerImage &&
-                        <Image src={urlFor(fitnessPosts[0].headerImage).url()} alt="" width={200} height={200} className="rounded-md my-10" />
-                    }
-                    <h1
-                        className="font-julius font-bold text-3xl mb-5 w-[50%] mt-10 text-center "
-                    >
-                        {fitnessPosts[0].name}
+            <div className="flex flex-col w-full items-center justify-center">
+                {fitnessPosts[0].headerImage &&
+                    <Image src={urlFor(fitnessPosts[0].headerImage).url()} alt="" width={200} height={200} className="rounded-md my-10" />
+                }
+                <h1
+                    className="font-julius font-bold text-2xl xl:text-3xl mb-5 w-[90%] xl:w-[50%] mt-6 xl:mt-10 text-center "
+                >
+                    {fitnessPosts[0].name}
 
-                    </h1>
-                </div>
+                </h1>
                 <PortableText
-                    className=" rounded-lg w-[50%] py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-start"
+                    className=" rounded-lg w-[100%] xl:w-[50%] py-4 xl:py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-6 xl:p-10 text-center xl:text-start"
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
                     content={fitnessPosts[0].body}
@@ -64,9 +62,18 @@ export default function Fitness({ fitnessPosts }: Props) {
                 />
             </div>
 
-            <div className="flex flex-row items-center justify-center my-10">
+            <div className="flex flex-col xl:flex-row items-center justify-center my-10">
+                <div className="flex flex-col items-center ">
+                    {fitnessPosts[0].footerImage &&
+                        <Image src={urlFor(fitnessPosts[0].footerImage).url()} alt="" width={200} height={200} className="rounded-md my-5" />
+                    }
+                    <h1
+                        className="font-julius font-bold text-2xl mb-5 w-[90%] xl:w-[50%] mt-10 text-center "
+                    >            {fitnessPosts[0].subtitle}
+                    </h1>
+                </div>
                 <PortableText
-                    className=" rounded-lg w-[50%]  py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-start"
+                    className=" rounded-lg w-[100%] xl:w-[50%]  py-10 mb-0 xl:mb-0 mr-0 xl:mr-10 p-6 xl:p-10 text-center xl:text-start"
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
                     content={fitnessPosts[0].subBody}
@@ -88,15 +95,7 @@ export default function Fitness({ fitnessPosts }: Props) {
                         ),
                     }}
                 />
-                <div className="flex flex-col items-center ">
-                    {fitnessPosts[0].footerImage &&
-                        <Image src={urlFor(fitnessPosts[0].footerImage).url()} alt="" width={200} height={200} className="rounded-md my-5" />
-                    }
-                    <h1
-                        className="font-julius font-bold text-2xl mb-5 w-[50%] mt-10 text-center "
-                    >            {fitnessPosts[0].subtitle}
-                    </h1>
-                </div>
+
 
             </div>
 

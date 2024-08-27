@@ -130,6 +130,11 @@ export interface GuidancePost {
       url: string;
     };
   };
+  secondaryImage: {
+    asset: {
+      url: string;
+    };
+  };
   headerText: [object];
   body: [object];
 }

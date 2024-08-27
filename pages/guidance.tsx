@@ -34,7 +34,6 @@ interface IFormInput {
 export default function Coaching({
   guidancePosts,
   posts,
-  testimonailPosts,
   meditationPosts,
   leelaPosts,
   leelaTestimonialsPosts,
@@ -65,18 +64,7 @@ export default function Coaching({
       });
   };
 
-  // <AnimatePresence>
-  //                     <div className='mx-auto'>
-  //                       <motion.img
-  //                         initial={{ x: "-20vw", opacity: 0 }}
-  //                         whileInView={{ x: 0, opacity: 1 }}
-  //                         exit={{ x: "-20vw", opacity: 0 }}
-  //                         transition={{ duration: 1 }}
-  //                         className='rounded-lg max-h-[30vh] max-w-[50vw] xl:max-h-[20vh] xl:max-w-[20vw]'
-  //                         src={urlFor(post.benefitsImage).url()!} alt="" />
-  //                     </div>
-  //                   </AnimatePresence>
-
+  console.log(guidancePosts[0])
   return (
     <motion.div
       className="flex flex-col m-auto w-full py-2 justify-center"
@@ -85,64 +73,77 @@ export default function Coaching({
       transition={{ ease: "easeInOut", duration: 1 }}
     >
       <div id="guidance section" className=" h-auto bg-secondary flex flex-col">
-          <motion.div
-            initial={{ x: -1000 }}
-            animate={{ x: 0 }}
-            transition={{ ease: "easeInOut", duration: 2 }}
-            id="headerText"
-            className="mx-auto my-20 text-8xl font-bold text-greens font-Corinthia "
-          >
-            {guidancePosts[0].title}
-          </motion.div>
-
-        <div
-          id="content"
-          className="flex flex-col xl:flex-row w-5/6 mx-auto mb-24"
+        <motion.div
+          initial={{ x: -1000 }}
+          animate={{ x: 0 }}
+          transition={{ ease: "easeInOut", duration: 2 }}
+          id="headerText"
+          className="mx-auto mt-10 mx:my-10 text-8xl font-bold text-greens font-Corinthia "
         >
+          {guidancePosts[0].title}
+        </motion.div>
+
+
+        <motion.div
+          initial={{ x: -1000 }}
+          animate={{ x: 0 }}
+          transition={{ ease: "easeInOut", duration: 2.5 }}
+          id="leftSide"
+          className=" w-[90%] mx-auto flex flex-col justify-center my-2 mx:my-10"
+        >
+          <PortableText
+            className="w-full rounded-lg py-10 bg-greens xl:mr-10 p-4 mx:p-10 text-center"
+            dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+            projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+            content={guidancePosts[0].body}
+            serializers={{
+              h1: (props: any) => (
+                <h1 className="text-2xl font-bold my-2" {...props} />
+              ),
+              normal: (props: any) => (
+                <h1
+                  className="xl:font-semibold xl:text-2xl text-sm my-2 text-primary font-julius"
+                  {...props}
+                />
+              ),
+              h2: (props: any) => (
+                <h1
+                  className="text-4xl text-center font-bold py-2"
+                  {...props}
+                />
+              ),
+            }}
+          />
+        </motion.div>
+
+        <div className="w-full flex flex-col xl:flex-row justify-around my-2 xl:my-10">
           <motion.div
-            initial={{ x: -1000 }}
+            initial={{ x: 1000 }}
             animate={{ x: 0 }}
             transition={{ ease: "easeInOut", duration: 2.5 }}
-            id="leftSide"
-            className=" w-full xl:w-1/2 flex flex-col justify-center mb-0 xl:mb-0"
+            className=" w-full xl:w-1/2 flex items-center justify-center"
           >
-            <PortableText
-              className="w-full rounded-lg py-10 bg-greens mb-0 xl:mb-0 mr-0 xl:mr-10 p-10 text-center"
-              dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-              projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-              content={guidancePosts[0].body}
-              serializers={{
-                h1: (props: any) => (
-                  <h1 className="text-2xl font-bold my-2" {...props} />
-                ),
-                normal: (props: any) => (
-                  <h1
-                    className="font-semibold text-2xl my-2 text-primary font-julius"
-                    {...props}
-                  />
-                ),
-                h2: (props: any) => (
-                  <h1
-                    className="text-4xl text-center font-bold py-2"
-                    {...props}
-                  />
-                ),
-              }}
+            <img
+              className=" relative w-[90%] my-2 xl:my-0 xl:w-2/3 h-auto border-8 border-greens rounded-sm"
+              src={urlFor(guidancePosts[0].secondaryImage).url()!}
+              alt=""
             />
           </motion.div>
           <motion.div
             initial={{ x: 1000 }}
             animate={{ x: 0 }}
             transition={{ ease: "easeInOut", duration: 2.5 }}
-            className=" w-full xl:w-1/2 flex items-center justify-center xl:justify-end xl:my-0 my-20"
+            className=" w-[80%] mx-auto xl:mx-0 xl:w-1/2 flex items-center justify-center"
           >
             <img
-              className=" relative w-1/2 h-auto border-8 border-greens rounded-sm"
+              className=" relative w-full xl:w-1/3 h-auto border-8 border-greens rounded-sm"
               src={urlFor(guidancePosts[0].mainImage).url()!}
               alt=""
             />
           </motion.div>
+
         </div>
+
       </div>
 
       <div id="coaching section" className=" h-auto flex flex-col">
@@ -163,7 +164,7 @@ export default function Coaching({
           className=""
         >
           <PortableText
-            className="flex flex-col text-center mx-auto w-5/6 my-10 text-6xl text-greens font-Corinthia"
+            className="flex flex-col text-center mx-auto w-5/6 my-10 text-4xl xl:text-6xl text-greens font-Corinthia"
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
             content={posts[0].headerText}
@@ -652,6 +653,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     _id,
     title,
     mainImage,
+    secondaryImage,
     headerText,
     body
   }`;
