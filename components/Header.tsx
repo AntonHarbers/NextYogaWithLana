@@ -32,12 +32,13 @@ function Header() {
               changeActive("empty");
               changeActiveTab("Home");
             }}
-            className="cursor-pointer select-none"
+            className="cursor-pointer select-none "
             src="/Logo.png"
             alt="Yoga"
             width={200}
             height={200}
           />
+
         </Link>
         <motion.div
           initial={{ opacity: 0 }}
