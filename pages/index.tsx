@@ -40,10 +40,10 @@ export default function Home({ posts, blogPosts }: Props) {
       animate={{ opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1 }}
     >
-      <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[90rem] 2xl:h-[50rem] w-full items-center 2xl:items-start ">
+      <div id="intopart" className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[40rem] 2xl:h-[49rem] w-full items-center 2xl:items-start ">
 
         <div id="leftcol"
-          className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 2xl:h-[80%] justify-between text-5xl md:text-6xl   mt-0 xl:mt-20 ">
+          className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 xl:h-[90%] justify-between text-5xl md:text-6xl   mt-0">
 
           <motion.h1 initial={{ marginLeft: -2000, opacity: 0 }} animate={{ marginLeft: 0, opacity: 1 }} exit={{ marginLeft: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .4 }} className=" font-Julius mb-3">Educator</motion.h1>
           <motion.h1 initial={{ marginRight: -2000, opacity: 0 }} animate={{ marginRight: 0, opacity: 1 }} exit={{ marginRight: -2000, opacity: 0 }} transition={{ type: "spring", stiffness: 50, delay: .8 }} className=" font-Julius mt-3">& Coach</motion.h1>
@@ -52,7 +52,7 @@ export default function Home({ posts, blogPosts }: Props) {
           </div>
         </div>
 
-        <div id="rightcol" className="xl:grid xl:grid-cols-2 w-full mx-auto hidden my-5">
+        <div id="rightcol" className="xl:grid xl:grid-cols-2 w-full mx-auto hidden my-0">
           <motion.div
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ repeat: Infinity, duration: 5 }}

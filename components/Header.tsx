@@ -32,11 +32,11 @@ function Header() {
               changeActive("empty");
               changeActiveTab("Home");
             }}
-            className="cursor-pointer select-none "
+            className="cursor-pointer select-none h-[130px] w-[130px] "
             src="/Logo.png"
             alt="Yoga"
-            width={200}
-            height={200}
+            width={130}
+            height={100}
           />
 
         </Link>
