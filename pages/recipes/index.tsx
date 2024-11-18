@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function Nutrition({ post }: Props) {
-    console.log(post)
 
     return (
         <motion.div className="flex flex-col items-center 2xl:flex-row justify-center "

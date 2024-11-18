@@ -28,9 +28,7 @@ export default async function handler(
             time
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ message: 'Something went wrong', error });
     }
-    console.log("Comment submitted")
     return res.status(200).json({ message: 'Comment Submitted' })
 }

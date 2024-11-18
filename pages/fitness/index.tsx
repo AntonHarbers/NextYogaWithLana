@@ -13,8 +13,6 @@ interface Props {
 
 export default function Fitness({ fitnessPosts }: Props) {
 
-    console.log(fitnessPosts)
-
     // Fitness post 1 is Fitness Made Simple
     // Fitness post 2 is Evaluation
     // Fitness post 3 is reformer/Pilates

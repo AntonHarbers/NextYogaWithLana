@@ -55,16 +55,13 @@ export default function Coaching({
       body: JSON.stringify(data),
     })
       .then(() => {
-        console.log(data);
         setSubmitted(true);
       })
       .catch((err) => {
-        console.log(err);
         setSubmitted(false);
       });
   };
 
-  console.log(guidancePosts[0])
   return (
     <motion.div
       className="flex flex-col m-auto w-full py-2 justify-center"
@@ -78,7 +75,7 @@ export default function Coaching({
           animate={{ x: 0 }}
           transition={{ ease: "easeInOut", duration: 2 }}
           id="headerText"
-          className="mx-auto max-w-[90%] mt-10 mx:my-10 text-8xl font-bold text-greens font-Corinthia text-center "
+          className="mx-auto max-w-[90%] mt-10 mx:my-10 text-4xl xl:text-8xl font-bold text-greens font-Corinthia text-center "
         >
           {guidancePosts[0].title}
         </motion.div>
@@ -347,7 +344,6 @@ export default function Coaching({
               onClick={() => {
                 setRequestType("Guided Meditation");
                 setActive(!active);
-                console.log(requestType);
               }}
               className=" my-10 text-2xl bg-primary w-[20rem] py-5 px-10 mx-auto rounded-full text-text shadow-xl shadow-gray-600 hover:bg-opacity-80 active:shadow-lg active:bg-opacity-60 active:shadow-gray-500 transition duration-300 ease-in-out "
             >
