@@ -49,7 +49,7 @@ export default function HomeBlogSection({blogPosts}: {blogPosts: BlogPost[]}) {
                                         {children}
                                     </a>
                                 ),
-                                img: (props: any) => <img className='w-10 h-10' {...props} />
+                                img: (props: any) => <img alt={'Image'} className='w-10 h-10' {...props} />
                             }
                             }
                         />

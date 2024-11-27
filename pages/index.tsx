@@ -1,6 +1,5 @@
 import {GetStaticProps} from "next"
 import {sanityClient} from '../sanity';
-import PortableText from "react-portable-text"
 import {BlogPost, HomePost} from "../typings"
 import {motion} from "framer-motion"
 import {HomeIntroSection} from "../components/HomeComponents/homeIntroSection";
@@ -27,7 +26,7 @@ export default function Home({posts, blogPosts}: Props) {
 }
 
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async () => {
     const query = `
   *[_type=="home"]{
     _id,

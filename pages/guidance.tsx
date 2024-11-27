@@ -57,7 +57,7 @@ export default function Coaching({
       .then(() => {
         setSubmitted(true);
       })
-      .catch((err) => {
+      .catch(() => {
         setSubmitted(false);
       });
   };
@@ -658,7 +658,7 @@ export default function Coaching({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({  }) => {
   const coachQuery = `
   *[_type=="coaching"]{
     _id,

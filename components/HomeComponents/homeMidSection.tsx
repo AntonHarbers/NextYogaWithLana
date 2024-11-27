@@ -13,7 +13,7 @@ export function HomeMidSection({posts}: { posts: HomePost[] }) {
 
         <div id="rightcol" className="w-full hidden 2xl:grid xl:grid-cols-1">
             <div className="relative hidden 2xl:flex justify-center">
-                <img className="absolute h-[75rem] w-auto mt-[-15rem]" src="/home/front.png"/>
+                <img alt={'Envelope Front Image'} className="absolute h-[75rem] w-auto mt-[-15rem]" src="/home/front.png"/>
                 <AnimatePresence>
                     <motion.div
                         className="absolute px-5 py-10 h-auto w-[40rem] min-w-[20rem] bg-primary justify-center border-8 border-gray-300"
@@ -43,7 +43,7 @@ export function HomeMidSection({posts}: { posts: HomePost[] }) {
                         />
                     </motion.div>
                 </AnimatePresence>
-                <img className="absolute h-[75rem]  w-auto mt-[-15rem]" src="/home/back.png"/>
+                <img alt={'Envelope Back Image'} className="absolute h-[75rem]  w-auto mt-[-15rem]" src="/home/back.png"/>
             </div>
         </div>
         <div id="rightcol" className="flex 2xl:hidden mx-5 flex-col w-full justify-center">
