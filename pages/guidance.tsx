@@ -715,7 +715,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const guidancePosts = await sanityClient.fetch(guidanceQuery);
   const posts = await sanityClient.fetch(coachQuery);
-  const testimonailPosts = await sanityClient.fetch(testimonialQuery);
+  const testimonialPosts = await sanityClient.fetch(testimonialQuery);
   const meditationPosts = await sanityClient.fetch(meditationQuery);
   const leelaPosts = await sanityClient.fetch(leelaQuery);
   const leelaTestimonialsPosts = await sanityClient.fetch(
@@ -725,8 +725,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       guidancePosts,
-      posts,
-      testimonailPosts,
+      posts, testimonialPosts,
       meditationPosts,
       leelaPosts,
       leelaTestimonialsPosts,
