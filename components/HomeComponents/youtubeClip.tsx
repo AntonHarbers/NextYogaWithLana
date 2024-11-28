@@ -11,8 +11,8 @@ export function YoutubeClip({videoId, playOnReady = false}: { videoId: string, p
         event.target.playVideo();
     }
     const opts: YouTubeProps['opts'] = {
-        height: '400',
-        width: '300',
+        height: '500',
+        width: '380',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 0,

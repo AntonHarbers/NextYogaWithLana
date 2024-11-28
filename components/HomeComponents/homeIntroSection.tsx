@@ -5,10 +5,21 @@ import {YoutubeClip} from "./youtubeClip";
 import {urlFor} from "../../sanity";
 import Image from "next/image";
 
+const youtubeClipData = [
+    {
+        videoId: "KgCwYmhFXpo",
+        playOnReady: true
+    },
+    {
+        videoId: "QaU29GGFg1A",
+        playOnReady: false
+    }
+]
+
+
 export function HomeIntroSection(props: { homePosts: [HomePost] }) {
     return <div id="intropart"
-                className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[40rem] 2xl:h-[42rem] w-full items-center 2xl:items-start ">
-
+                className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[50rem] 2xl:h-[50rem] w-full items-center 2xl:items-start ">
         <div id="leftcol"
              className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 xl:h-[90%] justify-between text-5xl md:text-6xl mt-0">
             <motion.h1 initial={{marginLeft: -2000, opacity: 0}} animate={{marginLeft: 0, opacity: 1}}
@@ -19,14 +30,14 @@ export function HomeIntroSection(props: { homePosts: [HomePost] }) {
                        exit={{marginRight: -2000, opacity: 0}} transition={{type: "spring", stiffness: 50, delay: .8}}
                        className=" font-Julius mt-3">& Coach
             </motion.h1>
-            <div className={"max-h-full flex flex-col h-[25rem] w-auto "}>
-                <Carousel slideInterval={30000}>
-                    <div className={"w-auto h-full rounded-xl  overflow-hidden"}>
-                        <YoutubeClip videoId={"QaU29GGFg1A"} playOnReady={true}/>
-                    </div>
-                    {/*<div className={'w-auto h-full rounded-xl overflow-hidden'}>*/}
-                    {/*    <YoutubeClip videoId={"QaU29GGFg1A"}/>*/}
-                    {/*</div>*/}
+            {/* The Carousel container height should be set according to youtube clip component return height*/}
+            <div className={"max-h-full flex flex-col h-[500px] w-[380px] mx-auto "}>
+                <Carousel slideInterval={40000}>
+                    {youtubeClipData.map(({videoId, playOnReady}) => {
+                        return (<div className={"w-auto h-full rounded-xl  overflow-hidden"}>
+                            <YoutubeClip videoId={videoId} playOnReady={playOnReady}/>
+                        </div>)
+                    })}
                 </Carousel>
             </div>
         </div>
@@ -43,8 +54,8 @@ export function HomeIntroSection(props: { homePosts: [HomePost] }) {
                 className=" rounded-full self-end justify-self-start ml-20 h-[13vw] w-[13vw] shadow-inner shadow-gray-800 bg-secondary">
             </motion.div>
             <div
-                className="col-span-2 relative h-[28vw] w-[28vw] justify-self-start mx-auto rounded-full shadow-inner shadow-gray-800 bg-secondary overflow-visible">
-                <Image layout={'fill'} className={'scale-110'} src={urlFor(props.homePosts[0].rightImage).url()!} alt={"Yoga Pose Image"}/>
+                className="flex col-span-2 relative h-[28vw] w-[28vw] justify-self-start mx-auto rounded-full shadow-inner shadow-gray-800 bg-secondary overflow-visible">
+                <Image layout={'fill'} height={500} width={280} className={'scale-105'} src={urlFor(props.homePosts[0].rightImage).url()!} alt={"Yoga Pose Image"}/>
             </div>
         </div>
     </div>;
