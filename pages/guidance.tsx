@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { sanityClient, urlFor } from "../sanity";
+import { sanityClient } from "../sanity";
 import PortableText from "react-portable-text";
 import {
   CoachingPost,
