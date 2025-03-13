@@ -106,6 +106,7 @@ interface GallaryImagePost {
   _id: string;
   gallaryImages: object[];
   name: string;
+  priority: number;
 }
 
 export interface CoachingPost {
@@ -131,6 +132,11 @@ export interface GuidancePost {
     };
   };
   secondaryImage: {
+    asset: {
+      url: string;
+    };
+  };
+  tertiaryImage: {
     asset: {
       url: string;
     };
