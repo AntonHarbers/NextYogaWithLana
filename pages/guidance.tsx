@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { sanityClient } from "../sanity";
+import { sanityClient, urlFor } from "../sanity";
 import PortableText from "react-portable-text";
 import {
     CoachingPost,
@@ -68,7 +68,7 @@ export default function Coaching({
 
     return (
         <motion.div
-            className="flex flex-col m-auto w-full py-2 justify-center"
+            className="flex flex-col m-auto w-full bg-secondary py-2 justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 1 }}
@@ -92,7 +92,20 @@ export default function Coaching({
                 />
             )} />
 
-            <CoachingSection coachingPosts={posts} h1={(props: any) => (
+            <motion.div
+                initial={{ x: 1000 }}
+                animate={{ x: 0 }}
+                transition={{ ease: "easeInOut", duration: 2.5 }}
+                className=" w-[250px] mx-auto bg-secondary xl:w-[400px] flex items-center justify-center"
+            >
+                <img
+                    className=" relative w-full my-2 xl:my-0  h-auto border-2 border-greens rounded-sm"
+                    src={urlFor(guidancePosts[0].headerImage).url()!}
+                    alt=""
+                />
+            </motion.div>
+
+            {/* <CoachingSection coachingPosts={posts} h1={(props: any) => (
                 <h1 className="text-2xl font-bold my-2" {...props} />
             )} normal={(props: any) => (
                 <h1
@@ -128,7 +141,7 @@ export default function Coaching({
                     className="text-4xl text-center xl:text-end font-bold py-5 "
                     {...props}
                 />
-            )} />
+            )} /> */}
 
             <MeditationSection meditationPosts={meditationPosts} h1={(props: any) => (
                 <h1 className="text-2xl font-bold my-2" {...props} />
@@ -144,7 +157,7 @@ export default function Coaching({
                 setActive(!active);
             }} />
 
-            <LeelaSection leelaPosts={leelaPosts} h1={(props: any) => (
+            {/* <LeelaSection leelaPosts={leelaPosts} h1={(props: any) => (
                 <h1 className="text-2xl font-bold my-2" {...props} />
             )} normal={(props: any) => (
                 <h1 className="font-semibold text-2xl my-2 py-5" {...props} />
@@ -211,7 +224,7 @@ export default function Coaching({
                         </motion.h1>
                     </div>
                 </div>
-            ))} />
+            ))} /> */}
 
             {active && (
                 <AnimatePresence>
@@ -362,6 +375,7 @@ export const getStaticProps: GetStaticProps = async ({ }) => {
   *[_type=="guidance"]{
     _id,
     title,
+    headerImage,
     mainImage,
     secondaryImage,
     tertiaryImage,

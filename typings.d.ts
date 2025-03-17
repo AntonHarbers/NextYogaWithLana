@@ -141,6 +141,11 @@ export interface GuidancePost {
       url: string;
     };
   };
+  headerImage: {
+    asset: {
+      url: string;
+    };
+  };
   headerText: [object];
   body: [object];
 }
