@@ -5,7 +5,7 @@ import NavbarLinkIcon from "./navbar/NavbarLinkIcon";
 
 function Header() {
 
-  const firstRow: string[][] = [["Home", "/"], ["Coaching", "/guidance"], ["Fitness", "/fitness"], ["Yoga", "/yoga"]]
+  const firstRow: string[][] = [["Home", "/"], ["Fitness", "/fitness"], ["Guidance", "/guidance"], ["Yoga", "/yoga"]]
   // Temporarily hide the Health page from the navigation
   const secondRow: string[][] = [
     // ["Health", "/reiki"],

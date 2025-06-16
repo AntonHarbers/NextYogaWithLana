@@ -64,9 +64,8 @@ export default function About({ posts }: Props) {
                                 <h1 className="text-2xl my-5 w-full text-center" {...props} />
                             ),
                             normal: (props: any) => (
-                                <div className='flex flex-row items-center border-l-0 xl:border-l-2 border-greens'>
-                                    <div className='rounded-full bg-greens hidden xl:block xl:w-2 xl:h-2 xl:ml-[-5px] '>
-                                    </div>
+                                <div className='flex flex-row items-center'>
+
                                     <h1 className="my-5 text-lg pb-1 pl-10" {...props} />
                                 </div>
 

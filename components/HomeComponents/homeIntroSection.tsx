@@ -19,15 +19,15 @@ const youtubeClipData = [
 
 export function HomeIntroSection(props: { homePosts: [HomePost] }) {
     return <div id="intropart"
-        className="flex flex-col xl:flex-row 2xl:justify-between h-auto xl:h-[50rem] 2xl:h-[50rem] w-full items-center 2xl:items-start ">
+        className="flex flex-col xl:flex-row h-auto xl:h-[50rem] 2xl:h-[50rem] w-full items-center 2xl:items-start ">
         <div id="leftcol"
-            className="flex flex-col w-5/6 xl:w-3/5 m-2 text-center h-1/2 xl:h-[90%] justify-between text-4xl md:text-5xl mt-0">
+            className="flex flex-col w-5/6 xl:w-3/5 text-center h-1/2 xl:h-[90%] justify-between text-4xl md:text-5xl py-5">
             <motion.h1
                 initial={{ marginLeft: -2000, opacity: 0 }}
                 animate={{ marginLeft: 0, opacity: 1 }}
                 exit={{ marginLeft: -2000, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 50, delay: .4 }}
-                className=" font-Julius mb-3"
+                className=" font-Julius "
             >
                 Personal Website of Lana Harbers
             </motion.h1>
@@ -35,7 +35,7 @@ export function HomeIntroSection(props: { homePosts: [HomePost] }) {
             <div className={"max-h-full flex flex-col h-[500px] w-[380px] mx-auto "}>
                 <Carousel slideInterval={40000}>
                     {youtubeClipData.map(({ videoId, playOnReady }) => {
-                        return (<div className={"w-auto h-full rounded-xl  overflow-hidden"}>
+                        return (<div key={videoId} className={"w-auto h-full rounded-xl  overflow-hidden"}>
                             <YoutubeClip videoId={videoId} playOnReady={playOnReady} />
                         </div>)
                     })}

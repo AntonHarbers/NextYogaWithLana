@@ -66,7 +66,7 @@ export default function GuidanceSection(props: {
                         alt=""
                     />
                 </motion.div>
-                <motion.div
+                {/* <motion.div
                     initial={{ x: 1000 }}
                     animate={{ x: 0 }}
                     transition={{ ease: "easeInOut", duration: 2.5 }}
@@ -77,7 +77,7 @@ export default function GuidanceSection(props: {
                         src={urlFor(props.guidancePosts[0].mainImage).url()!}
                         alt=""
                     />
-                </motion.div>
+                </motion.div> */}
 
             </div>
             <PortableText
