@@ -6,7 +6,13 @@ import NavbarLinkIcon from "./navbar/NavbarLinkIcon";
 function Header() {
 
   const firstRow: string[][] = [["Home", "/"], ["Coaching", "/guidance"], ["Fitness", "/fitness"], ["Yoga", "/yoga"]]
-  const secondRow: string[][] = [["Health", "/reiki"], ["Recipes", "/recipes"], ["Gallery", "/gallery"], ["About", "/about"]]
+  // Temporarily hide the Health page from the navigation
+  const secondRow: string[][] = [
+    // ["Health", "/reiki"],
+    ["Recipes", "/recipes"],
+    ["Gallery", "/gallery"],
+    ["About", "/about"],
+  ]
 
   return (
     <div className="flex flex-col justify-center xl:flex-row w-full h-auto bg-primary">

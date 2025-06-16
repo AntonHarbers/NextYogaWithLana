@@ -8,7 +8,6 @@ export default function MeditationSection(props: {
     h1: (props: any) => JSX.Element,
     normal: (props: any) => JSX.Element,
     h2: (props: any) => JSX.Element,
-    onClick: () => void
 }) {
     return <div
         id="meditation section"
@@ -39,12 +38,6 @@ export default function MeditationSection(props: {
                         h2: props.h2,
                     }}
                 />
-                <button
-                    onClick={props.onClick}
-                    className=" my-10 text-2xl bg-primary w-[20rem] py-5 px-10 mx-auto rounded-full text-text shadow-xl shadow-gray-600 hover:bg-opacity-80 active:shadow-lg active:bg-opacity-60 active:shadow-gray-500 transition duration-300 ease-in-out "
-                >
-                    Sign up here
-                </button>
             </div>
             <motion.div
                 initial={{opacity: 0}}
